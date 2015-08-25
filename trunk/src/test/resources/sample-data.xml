@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <table name="app_user">
+        <column>id</column>
+        <column>username</column>
+        <column>password</column>
+        <column>first_name</column>
+        <column>last_name</column>
+        <column>address</column>
+        <column>city</column>
+        <column>country</column>
+        <column>email</column>
+        <column>phone_number</column>
+        <column>postal_code</column>
+        <column>province</column>
+        <column>website</column>
+        <column>password_hint</column>
+        <column>version</column>
+        <column>account_enabled</column>
+        <column>account_expired</column>
+        <column>account_locked</column>
+        <column>credentials_expired</column>
+        <row>
+            <value description="id">-1</value>
+            <value description="username">user</value>
+            <value description="password">12dea96fec20593566ab75692c9949596833adc9</value>
+            <value description="first_name">Tomcat</value>
+            <value description="last_name">User</value>
+            <value description="address"></value>
+            <value description="city">Denver</value>
+            <value description="country">US</value>
+            <value description="email">matt_raible@yahoo.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80210</value>
+            <value description="province">CO</value>
+            <value description="website">http://tomcat.apache.org</value>
+            <value description="password_hint"><![CDATA[A male kitty.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+        <row>
+            <value description="id">-2</value>
+            <value description="username">admin</value>
+            <value description="password">d033e22ae348aeb5660fc2140aec35850c4da997</value>
+            <value description="first_name">Matt</value>
+            <value description="last_name">Raible</value>
+            <value description="address"></value>
+            <value description="city">Denver</value>
+            <value description="country">US</value>
+            <value description="email">matt@raibledesigns.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80210</value>
+            <value description="province">CO</value>
+            <value description="website">http://raibledesigns.com</value>
+            <value description="password_hint"><![CDATA[Not a female kitty.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+        <row>
+            <value description="id">-3</value>
+            <value description="username">koval</value>
+            <value description="password">4f44cb894460b3043a7db03f1dfcaf7f77c9aadc</value>
+            <value description="first_name">Alexandre</value>
+            <value description="last_name">Koval</value>
+            <value description="address"></value>
+            <value description="city">Königsbrunn</value>
+            <value description="country">DE</value>
+            <value description="email">alexandre.koval@gmail.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">86343</value>
+            <value description="province">BY</value>
+            <value description="website">http://www.sophomore.de</value>
+            <value description="password_hint"><![CDATA[Nachname]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+        <row>
+            <value description="id">1</value>
+            <value description="username">TVS</value>
+            <value description="password">tvs</value>
+            <value description="first_name">Firma</value>
+            <value description="last_name">TVS</value>
+            <value description="address"></value>
+            <value description="city">München</value>
+            <value description="country">DE</value>
+            <value description="email">info@virtual-solution.de</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80525</value>
+            <value description="province">BY</value>
+            <value description="website">http://www.virtual-solution.de</value>
+            <value description="password_hint"><![CDATA[Customer role should haven't password.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">0</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">1</value>
+            <value description="credentials_expired">0</value>
+        </row>
+        <row>
+            <value description="id">2</value>
+            <value description="username">IBM</value>
+            <value description="password">ibm</value>
+            <value description="first_name">Firma</value>
+            <value description="last_name">IBM (CH)</value>
+            <value description="address"></value>
+            <value description="city">Zürich</value>
+            <value description="country">CH</value>
+            <value description="email">info@ch.ibm.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code"></value>
+            <value description="province">ZH</value>
+            <value description="website">http://www.ibm.ch</value>
+            <value description="password_hint"><![CDATA[Customer role should haven't password.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">0</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">1</value>
+            <value description="credentials_expired">0</value>
+        </row>
+    </table>
+    <table name="role">
+        <column>id</column>
+        <column>name</column>
+        <column>description</column>
+        <row>
+            <value description="id">-1</value>
+            <value description="name">ROLE_ADMIN</value>
+            <value description="description"><![CDATA[Administrator role (can edit Users)]]></value>
+        </row>
+        <row>
+            <value description="id">-2</value>
+            <value description="name">ROLE_USER</value>
+            <value description="description"><![CDATA[Default role for all Users]]></value>
+        </row>
+        <row>
+            <value description="id">-3</value>
+            <value description="name">ROLE_CUSTOMER</value>
+            <value description="description"><![CDATA[Default role for all project Customers]]></value>
+        </row>
+    </table>
+    <table name="user_role">
+        <column>user_id</column>
+        <column>role_id</column>
+        <row>
+            <value description="user_id">-1</value>
+            <value description="role_id">-2</value>
+        </row>
+        <row>
+            <value description="user_id">-2</value>
+            <value description="role_id">-1</value>
+        </row>
+        <row>
+            <value description="user_id">-3</value>
+            <value description="role_id">-1</value>
+        </row>
+        <row>
+            <value description="user_id">1</value>
+            <value description="role_id">-3</value>
+        </row>
+        <row>
+            <value description="user_id">2</value>
+            <value description="role_id">-3</value>
+        </row>
+    </table>
+
+	<table name="project">
+		<column>id</column>
+		<column>name</column>
+		<column>begin</column>
+		<column>description</column>
+		<column>end</column>
+		<column>lastupdated</column>
+		<row>
+			<value description="id">-1</value>
+			<value description="name">NuOnEzRsBaSvSsKwAq</value>
+			<value description="begin">2008-11-30</value>
+			<value description="description">SfMuHiGnTsZrPcOpEbGeKhCfTqKtRpIbMwZiIaTwLqGcMqZqTvKrVqItFnTmVnBaRcFxElAkNmMpFvSqCcKqTwMrJqNfCjRjThFfDjCmQmHkNeXoZpNrNvQzTfEnDhFxBoIqBsNgKuCeHrTiTqQpIxVtNvHaNtDuOnLdRhVkJiJkLlRjYtTkVwYvTgRuQlJbMbPqEtPu</value>
+			<value description="end">2008-11-30</value>
+			<value description="lastupdated">2008-11-30</value>
+		</row>
+		<row>
+			<value description="id">-2</value>
+			<value description="name">WwNwPiSrZqFqByDdVtHu</value>
+			<value description="begin">2008-11-30</value>
+			<value description="description">PdAkHjLhGgQsGdWvIcOhUcOpIeQpVeVgGhBtFaAnFmVcCoDnHqPiZgHiMeDiPyWcFqWdCbEuGnVtSwRtQoAkKoUeLxIaMnIfYdXpFkZdSqIuHjRhYvYcTxYaWpBfAyZtUmIrXhKnHqDnMoJlHbXfRbLgTsVhDqBcXdBtUpEaUcRuWmOlPxVhPcPxGcCaRqHcTvPaNhKz</value>
+			<value description="end">2008-11-30</value>
+			<value description="lastupdated">2008-11-30</value>
+		</row>
+		<row>
+			<value description="id">-3</value>
+			<value description="name">VcBmJpFlGlEwBzBjAi</value>
+			<value description="begin">2008-11-30</value>
+			<value description="description">EqJgOvUqRhCgCeKhOwAfPnRjIjLhTdIdYtDlKvGcAtBcZyCpNqYkYnQhIoRxYnCaZgUjUxGoNnPhTtCwGuUcFhEwIhVtFwXrCgCyJqAlTqTwVkZjTpVvOqSeBeUqDjZyYkBlPkTgDhTkJxDxSaRmZzWaMqPvGqHxHoKgIrPcEnGxHaDhJwOeSuEuAaBjDsXsDuDkEhGp</value>
+			<value description="end">2008-11-30</value>
+			<value description="lastupdated">2008-11-30</value>
+		</row>
+	</table>
+	
+    <table name="project_user">
+        <column>project_id</column>
+        <column>user_id</column>
+        <row>
+            <value description="project_id">-1</value>
+            <value description="user_id">1</value>
+        </row>
+        <row>
+            <value description="project_id">-1</value>
+            <value description="user_id">2</value>
+        </row>
+    </table>
+    
+</dataset>

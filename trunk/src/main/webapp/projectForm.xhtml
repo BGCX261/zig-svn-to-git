@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:v="http://corejsf.com/validator">
+
+<f:view>
+<f:loadBundle var="text" basename="#{projectForm.bundleName}"/>
+    <head>
+        <title>#{text['projectDetail.title']}</title>
+        <meta name="heading" content="#{text['projectDetail.heading']}"/>
+        <style type="text/css">
+            .jscalendar-DB-div-style {
+                position: absolute;
+                margin-top: -120px;
+                margin-left: -508px;
+            }
+	    </style>
+    </head>
+<body id="projectForm">
+
+<h:form id="projectForm" onsubmit="return validateProjectForm(this)">
+<h:inputHidden value="#{projectForm.project.id}" id="id"/>
+<h:panelGrid columns="3" border="1">
+    <h:outputLabel styleClass="desc" for="name" value="#{text['project.name']}"/>
+    <t:message for="name" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="name" value="#{projectForm.project.name}" required="true" maxlength="120">
+        <v:commonsValidator type="required" arg="#{text['project.name']}"/>
+    </h:inputText>
+    <h:outputLabel styleClass="desc" for="begin" value="#{text['project.begin']}"/>
+    <t:message for="begin" styleClass="fieldError"/>
+	<t:inputCalendar id="begin"
+					monthYearRowClass="jahrMonat" weekRowClass="weekHeader"
+					popupButtonStyleClass="standard_bold"
+					currentDayCellClass="currentDayCell" renderAsPopup="true"
+					popupTodayString="Heute" renderPopupButtonAsImage="true"
+					popupDateFormat="dd.MM.yyyy" popupWeekString="Woche" helpText=""
+					value="#{projectForm.project.begin}">
+					<f:convertDateTime pattern="dd.MM.yyyy" timeZone="Europe/Berlin" />
+	</t:inputCalendar>
+    <h:outputLabel styleClass="desc" for="end" value="#{text['project.end']}"/>
+    <t:message for="end" styleClass="fieldError"/>
+    <t:inputCalendar id="end"
+					monthYearRowClass="jahrMonat" weekRowClass="weekHeader"
+					popupButtonStyleClass="standard_bold"
+					currentDayCellClass="currentDayCell" renderAsPopup="true"
+					popupTodayString="Heute" renderPopupButtonAsImage="true"
+					popupDateFormat="dd.MM.yyyy" popupWeekString="Woche" helpText=""
+					value="#{projectForm.project.end}">
+					<f:convertDateTime pattern="dd.MM.yyyy" timeZone="Europe/Berlin" />
+				</t:inputCalendar>
+    <h:outputLabel styleClass="desc" for="description" value="#{text['project.description']}"/>
+    <t:message for="description" styleClass="fieldError"/>
+    <t:inputTextarea id="description" value="#{projectForm.project.description}" 
+		maxlength="4000" cols="50" rows="4" rendered="true" required="false">
+		<f:validateLength maximum="4000" />
+	</t:inputTextarea>
+    <h:outputLabel styleClass="desc" for="lastupdated" value="#{text['project.lastupdated']}"/>
+    <t:message for="lastupdated" styleClass="fieldError"/>
+    <h:inputText styleClass="text medium" id="lastupdated" value="#{projectForm.project.lastupdated}" required="false" maxlength="255" readonly="true">
+    </h:inputText>
+	<h:panelGroup styleClass="buttonBar bottom">
+        <h:commandButton value="#{text['button.save']}" action="#{projectForm.save}" id="save" styleClass="button"/>
+
+        <c:if test="${not empty projectForm.project.id}">
+        <h:commandButton value="#{text['button.delete']}" action="#{projectForm.delete}"
+            id="delete" styleClass="button" onclick="bCancel=true; return confirmDelete('Project')"/>
+        </c:if>
+
+        <h:commandButton value="#{text['button.cancel']}" action="cancel" immediate="true"
+            id="cancel" styleClass="button" onclick="bCancel=true"/>
+    </h:panelGroup>
+    <h:outputText/><h:outputText/>
+
+</h:panelGrid>
+</h:form>
+
+<v:validatorScript functionName="validateProjectForm"/>
+
+<script type="text/javascript">
+    //Form.focusFirstElement($('projectForm'));
+    highlightFormElements();
+</script>
+
+</body>
+</f:view>
+</html>

@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:t="http://myfaces.apache.org/tomahawk">
+
+<f:view>
+<f:loadBundle var="text" basename="#{projectList.bundleName}"/>
+    <head>
+        <title>#{text['projectList.title']}</title>
+        <meta name="heading" content="#{text['projectList.heading']}"/>
+        <meta name="menu" content="ProjectMenu"/>
+    </head>
+<body id="projectList">
+<h:form id="editProject">
+
+<h:commandButton value="#{text['button.add']}" action="add" id="add" immediate="true" styleClass="button"/>
+<h:commandButton value="#{text['button.done']}" action="mainMenu" id="cancel" immediate="true" styleClass="button" style="margin-left: 5px"/>
+
+<t:dataTable id="projects" var="project" style="margin-top: 10px"
+    value="#{projectList.projects}" rows="25" sortColumn="#{projectList.sortColumn}"
+    sortAscending="#{projectList.ascending}" styleClass="scrollerTable table"
+    headerClass="standardTable_Header" rowClasses="standardTable_Row1,standardTable_Row2"
+    columnClasses="standardTable_Column,standardTable_Column,standardTable_Column,standardTable_Column,standardTable_ColumnCentered">
+
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="id" arrow="true">
+                <h:outputText value="#{text['project.id']}" />
+            </t:commandSortHeader>
+        </f:facet>
+        <h:commandLink action="#{projectForm.edit}" value="#{project.id}">
+            <f:param name="id" value="#{project.id}"/>
+            <f:param name="from" value="list"/>
+        </h:commandLink>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="name" arrow="true">
+                <h:outputText value="#{text['project.name']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{project.name}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="customers" arrow="true">
+                <h:outputText value="#{text['project.customers']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{project.customersAsString}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="description" arrow="true">
+                <h:outputText value="#{text['project.shortDescription']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{project.shortDescription}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="begin" arrow="true">
+                <h:outputText value="#{text['project.begin']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{project.begin}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="end" arrow="true">
+                <h:outputText value="#{text['project.end']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{project.end}" escape="true"/>
+    </t:column>
+    <t:column>
+        <f:facet name="header">
+            <t:commandSortHeader columnName="lastupdated" arrow="true">
+                <h:outputText value="#{text['project.lastupdated']}" />
+            </t:commandSortHeader>
+        </f:facet>
+    <h:outputText value="#{project.lastupdated}" escape="true"/>
+    </t:column>
+</t:dataTable>
+
+<ui:include src="/common/tableFooter.xhtml">
+    <ui:param name="tableName" value="projects"/>
+</ui:include>
+
+<script type="text/javascript">
+    highlightTableRows("editProject:projects");
+</script>
+
+</h:form>
+</body>
+</f:view>
+</html> 
